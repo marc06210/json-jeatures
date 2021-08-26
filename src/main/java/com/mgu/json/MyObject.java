@@ -1,5 +1,6 @@
 package com.mgu.json;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -14,7 +15,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MyObject {
-    @JsonDeserialize(using = MyProfileDeserializer.class)
+    //@JsonDeserialize(using = MyProfileDeserializer.class)
+    @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
     private List<String> profile = new ArrayList<>();
 
     public MyObject() {
